@@ -1,3 +1,28 @@
+--****************************
+-- Part II.A.3 Question 1
+--****************************
+-- Un additionneur à retenue propagée 4 bits est construit avec plusieurs additionneurs complets 1 bit :
+--
+-- - Chaque additionneur complet (full_adder) calcule la somme d'un bit
+--   de A, d'un bit de B, et d'une retenue d'entrée (Cin).
+--
+-- - Le Cout (carry out) de chaque additionneur est connecté au Cin
+--   du suivant, de poids faible vers poids fort.
+--
+-- - La première retenue Cin est l'entrée générale de l'additionneur 4 bits.
+--   La dernière retenue Cout (issue du MSB) devient la retenue finale.
+--
+-- Schéma logique :
+-- 
+--     Cin ---> [FA0] ---> c1 ---> [FA1] ---> c2 ---> [FA2] ---> c3 ---> [FA3] ---> Cout
+--                |               |               |               |
+--              S(0)            S(1)            S(2)            S(3)
+--
+-- Où FAi est un additionneur complet sur 1 bit (A(i), B(i), Cin).
+
+--****************************
+-- Part II.A.3
+--****************************
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

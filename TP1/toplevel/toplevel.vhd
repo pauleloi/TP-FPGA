@@ -1,4 +1,6 @@
--- Top-level pour l’additionneur complet 4 bits
+--****************************
+-- Part II.A.4
+--****************************
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
