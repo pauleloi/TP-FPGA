@@ -45,7 +45,7 @@ begin
             Q_int <= '0';   -- Reset immédiat
         elsif (SETn = '0') then
             Q_int <= '1';   -- Set immédiat
-        elsif (rising_edge(CLK)) then
+        elsif (CLK'event and CLK = '1') then
             -- Fonctionnement synchrone classique
             case std_logic_vector'(J & K) is
                 when "00" => -- Mémorisation
