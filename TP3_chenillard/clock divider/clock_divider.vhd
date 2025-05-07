@@ -22,7 +22,7 @@ begin
 	begin
 		 if RST = '0' then
 			  counter <= (others => '0');
-		 elsif rising_edge(CLKin) then
+		 elsif (CLKin'event and CLKin = '1') then
 			  counter <= counter + 1;
 		 end if;
 	end process;

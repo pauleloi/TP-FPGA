@@ -30,7 +30,7 @@ begin
 	 -- Synchronisation du bouton de reset sur clk_div
     sync_reset_proc: process(clk_div)
     begin
-        if rising_edge(clk_div) then
+        if (clk_div'event and clk_div = '1') then
             rst_sync_1 <= KEY(0);
             rst_sync   <= rst_sync_1;
         end if;

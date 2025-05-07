@@ -20,7 +20,7 @@ begin
 	begin
 		 if RST = '0' then
 			  state <= 0;
-		 elsif rising_edge(CLK) then
+		 elsif (CLK'event and CLK = '1') then
 			  if state = 9 then
 					state <= 0;
 			  else
