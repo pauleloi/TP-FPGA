@@ -18,17 +18,15 @@ end entity clock_divider;
 architecture Behavioral of clock_divider is
     signal counter : unsigned(23 downto 0) := (others => '0'); -- Compteur 24 bits
 begin
-    process (CLKin)
-    begin
-        if (CLKin'event and CLKin = '1')  then
-            if RST = '0' then
-                counter <= (others => '0');
-            else
-                counter <= counter + 1;
-            end if;
-        end if;
-    end process;
-	 
+	process (CLKin, RST)
+	begin
+		 if RST = '0' then
+			  counter <= (others => '0');
+		 elsif rising_edge(CLKin) then
+			  counter <= counter + 1;
+		 end if;
+	end process;
+		 
 	 -- Multiplexage du bit N du compteur pour générer la sortie
     with to_integer(unsigned(N)) select
         CLKout <= counter(0)  when  0,
